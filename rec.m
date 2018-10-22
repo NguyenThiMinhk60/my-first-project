@@ -1,12 +1,12 @@
 %audio recording
 x=audiorecorder;
 disp('start speaking');
-recordblocking(x,10);
+recordblocking(x,12);
 disp('stop speaking');
 y=getaudiodata(x,'double');
 sound(y);
 filename = 'orig_input.wav';
-audiowrite(filename,y,8000);
+audiowrite(filename,y,8500);
 %creating melody
 fs = 44100; 
 t = 0 : 1/fs : 5;
@@ -32,3 +32,10 @@ audiowrite(filename1,y_mix,85000);
 %FFT
 Y_mix=fft(y_mix);
 plot(abs(Y_mix));
+%Spectrogram
+[y,fs]=audioread('melody.wav');
+win=128;
+hop=win/2;
+nfft=win;
+spectrogram(y,win,hop,nfft,fs,'yaxis')
+

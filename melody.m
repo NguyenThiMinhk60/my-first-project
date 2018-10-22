@@ -14,3 +14,4 @@ y3 = A3 * sin( 2 * pi * f3 * t + w );
 y4 = A4 * sin( 2 * pi * f4 * t + w );
 y_mel = [y1 y2 y3 y4];
 sound( y_mel, 70000, 16 ); % playback sinewav
+
